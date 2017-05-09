@@ -1,0 +1,3 @@
+airflow 
+airflow[crypto,celery,postgres,hive,hdfs,jdbc]
+psycopg2

@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+    postgres:
+        image: postgres:9.6
+        volumes:
+             - ./data:/var/lib/postgresql/data
+        environment: 
+             - POSTGRES_USER=airflow
+             - POSTGRES_PASSWORD=airflow
+             - POSTGRES_DB=airflow
+
+    webserver:
+         build: .
+         #image: airflow:1.8.0
+         ports:
+             - "8080:8080"
+         command: sh run.sh 
+         links:
+             - postgres:postgres
+         volumes:
+             - ./airflow/dags:/workspace/airflow/dags
+
+
