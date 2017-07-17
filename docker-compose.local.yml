@@ -12,7 +12,6 @@ services:
 
     webserver:
          build: .
-         #image: airflow:1.8.0
          ports:
              - "8080:8080"
          command: sh run.sh 
